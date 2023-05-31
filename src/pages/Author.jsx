@@ -63,7 +63,7 @@ const Author = () => {
                           height={150}
                           borderRadius={"50%"}
                         />
-                        <i className="fa fa-check"></i>
+                        <i className="fa fa-check" style={{zIndex:1}}></i>
                         <div className="profile_name">
                           <h4>
                             <Skeleton width={200} />
