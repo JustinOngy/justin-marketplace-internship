@@ -4,6 +4,7 @@ import AuthorItems from "../components/author/AuthorItems";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import SkeletonCard from "../components/UI/SkeletonCard";
 
 const Author = () => {
   const [authors, setAuthors] = useState([]);
@@ -135,11 +136,17 @@ const Author = () => {
                 </div>
               )}
 
-              <div className="col-md-12">
-                <div className="de_tab tab_simple">
-                  <AuthorItems />
+              {isLoading ? (
+                new Array(8)
+                  .fill(0)
+                  .map((_, index) => <SkeletonCard key={index} />)
+              ) : (
+                <div className="col-md-12">
+                  <div className="de_tab tab_simple">
+                    <AuthorItems data={authors} />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
